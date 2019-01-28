@@ -12,7 +12,9 @@ The **Paint Calculator** is a hypothetical project that calculates how many gall
 * Install Python / Pip
 * Run application
 * Write tests against the application. They do not have to be in Python, and should be in whatever language you are most comfortable with.
+- I've written tests in Java language using Rest Assured testing framework.
 * Write a test plan for the application.  You are free to determine the structure and length of the test plan.
+- I have a text file as part of this project called "Test Plan.txt" with my short and consice test plan, which outlines the test cases, scope, etc.
 * You are allowed to change any of the source code as you see fit to make things easier for yourself. You are encouraged to fix any bugs you discover.
   - I fixed a bug where in run.py file, in calculate_feet method, the following line didn't have the right formula entered(((Length * 2) + (Width * 2)) * Height) and then modified it:
   return int(formatted_data['length']) * int(formatted_data['width']) * int(formatted_data['height'])
@@ -20,7 +22,11 @@ The **Paint Calculator** is a hypothetical project that calculates how many gall
   return int((formatted_data['length'] * 2) + int(formatted_data['width'] * 2)) * int(formatted_data['height'])
     
 * Explain any problems you had while writing the tests, and what you did to make it easier. Pointing to localhost for the application is OK.
+- There was a problem with validating the response as it came with HTML page rather than JSON datablock, which would've made the testing bit faster. I couldn't resolve this problem as it involves 
+making many changes. I've never used Rest Assured testing framework or never used Java for writing test, so as I was learning, I was implementing the knowledge on writing the test cases.
 * What would be the proper level of execution for tests of this application?  If this differs from the testing level you wrote tests for, please explain where they would be better suited.
+- We could've done the execution of the test using UI automation framework but I wanted to try something different that I haven't had done previously in Java language, so I chose to
+do api level testing instead of writing UI automated tests. Writing end-to-end test would've been better with UI automation, but I didn't have much time to add more on to the test project.
 
 ## Instructions
 
@@ -52,3 +58,4 @@ To make it easier on everybody, it's best if we use a PR to diff what work was c
 ## Running Tests
 
 Write instructions for how a user executes the automated tests you created.
+- Simply download the repo locally then open Eclipse IDE, and Open Project called Test1 from the file directory and then open JUNIT perspective and run the tests. 

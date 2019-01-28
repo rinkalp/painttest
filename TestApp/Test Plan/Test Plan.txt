@@ -39,3 +39,6 @@ BadRequest 400 as per Rest Protocol.
 BadRequest 400 as per Rest Protocol.
 7. Dimensions Page Test - Continuation of test case 2, but we won't enter Height and only will enter Length and Width and submit. Application should've responded back with
 BadRequest 400 as per Rest Protocol.
+
+Test Cases note: Test cases can be tested using UI or api level testing techniques. For the current testing, I've went with api level testing in which I make HTTP request to
+back end service and validate the response.
