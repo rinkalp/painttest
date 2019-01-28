@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, abort
 import math
 
 app = Flask(__name__)
@@ -20,8 +20,11 @@ def dimensions():
     :return: Dimensions page
     """
     rooms = sanitize_input(request.args.get("rooms"))
-    return render_template("dimensions.html", rooms=rooms)
-
+	
+    if rooms < 0 or not rooms:
+        return abort(400)
+    else:
+        return render_template("dimensions.html", rooms=rooms)
 
 @app.route('/results', methods=['POST'])
 def results():
@@ -51,7 +54,7 @@ def calculate_feet(formatted_data):
     :param formatted_data: dict of L/W/H information
     :return: integer for the number of feet required by performing `((Length * 2) + (Width * 2)) * Height`
     """
-    return int(formatted_data['length']) * int(formatted_data['width']) * int(formatted_data['height'])
+    return int((formatted_data['length'] * 2) + int(formatted_data['width'] * 2)) * int(formatted_data['height'])
 
 
 def calculate_gallons_required(formatted_data):
