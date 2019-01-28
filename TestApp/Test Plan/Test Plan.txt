@@ -1,0 +1,41 @@
+Product Name: Paint Calculator
+
+Tester Name: Rinkal Parikh
+
+Introduction:
+
+Summary of testing: We will be testing a Paint Calculator which is a web application, that prompts user to select 
+how many rooms the user wants to calculate gallons of paint requires, then after the user enters the room, the application will
+prompt user to enter dimensions(width/height/length) for each room then the application displays the gallons the user will need
+to finish painting all the room. From three different screens, that user interacts with, it will make http request with backend
+service. We will do backend api level testing to three different endpoint using Java Rest Assured automated testing tool.
+
+Scope: We will list out all the test cases that will be used for testing this application, which may be manual, UI automated test, and
+api level component test. Due to the timing restrain, we won't be able to automate all the test cases but there will be api level component
+tests that will be automated. We will use open source test recording tool such as TestRail to record the test run, so anyone can see the test 
+run. We can also do the non-functional testing, but due to the time constraint it won't be feasible, therefore it will be out of our scope of testing.
+
+Assumptions: We will assume the backend service should follow the HTTP Protocol when making the request and return correct/expected response. Due to the 
+time contraint, we will assume that the application can be tested only on Chrome browser. If the backend of the application were to send response in JSON
+data format, we could've added more automated test in shorter time but since there is html page that is sent as a response, it takes more time to parse the
+data out of the response and validate our test against it. URL of the application is: http://127.0.0.1:5000/.
+
+Test Approach: The testing can be done using any open source tool such as Selenium for testing front end or doing end-to-end testing, we can use 
+Rest Assured to do backend api level testing.
+
+Test Environment: We can run the application locally and the application won't be hosted in cloud or dedicated physical servers. We can use google chrome
+for testing some manual cases.
+
+Test Cases: 
+1. Home Page Test - Home page of the application loads fine and all the html content is visible to enter the room size.
+2. Home Page Test - Enter 5 as Room qty and click Submit, it should redirect us to the Dimensions page, in which the page will be populated with 5 rows that
+prompts user to enter in dimensions.
+3. Home Page Test - Enter -1 as Room qty and click Submit, it should redirect us to the Dimensions page with no rows populated in dimensions page.
+4. Dimensions Page Test - Continuation from Test Case 2, we as a user will enter all dimensions value as a positive whole number, and we will click Submit button and 
+the application will redirect us to Result page, with the gallons of paint requires value.
+5. Dimensions Page Test - Continuation of test case 2, but we won't enter Length and only will enter Width and height and submit. Application should've responded back with
+BadRequest 400 as per Rest Protocol.
+6. Dimensions Page Test - Continuation of test case 2, but we won't enter Width and only will enter Length and height and submit. Application should've responded back with
+BadRequest 400 as per Rest Protocol.
+7. Dimensions Page Test - Continuation of test case 2, but we won't enter Height and only will enter Length and Width and submit. Application should've responded back with
+BadRequest 400 as per Rest Protocol.
